@@ -54,7 +54,7 @@ haze = "1.7.2"
 dependencyAnalysis = "3.10.0"
 
 # DI
-metro = "0.13.2"
+metro = "1.0.0"
 
 # Auto service
 autoservice = "1.1.1"
@@ -214,7 +214,7 @@ maplibre_annotation = "org.maplibre.gl:android-plugin-annotation-v9:3.0.2"
 opusencoder = "io.element.android:opusencoder:1.2.0"
 zxing_cpp = "io.github.zxing-cpp:android:3.0.2"
 google_zxing = "com.google.zxing:core:3.5.4"
-google_guava = "com.google.guava:guava:33.5.0-android"
+google_guava = "com.google.guava:guava:33.6.0-android"
 
 haze = { module = "dev.chrisbanes.haze:haze", version.ref = "haze" }
 haze_materials = { module = "dev.chrisbanes.haze:haze-materials", version.ref = "haze" }
@@ -234,7 +234,7 @@ sigpwned_emoji4j = "com.sigpwned:emoji4j-core:16.0.0"
 metro_runtime = { module = "dev.zacsweers.metro:runtime", version.ref = "metro" }
 
 # Element Call
-element_call_embedded = "io.element.android:element-call-embedded:0.19.2"
+element_call_embedded = "io.element.android:element-call-embedded:0.19.3"
 
 # Auto services
 google_autoservice = { module = "com.google.auto.service:auto-service", version.ref = "autoservice" }
@@ -262,13 +262,13 @@ metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ktlint = "org.jlleitschuh.gradle.ktlint:14.2.0"
 dependencygraph = "com.savvasdalkitsis.module-dependency-graph:0.12"
-dependencycheck = "org.owasp.dependencycheck:12.2.1"
+dependencycheck = "org.owasp.dependencycheck:12.2.2"
 dependencyanalysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
 paparazzi = "app.cash.paparazzi:2.0.0-alpha04"
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 firebaseAppDistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebaseAppDistribution" }
-sonarqube = "org.sonarqube:7.2.3.7755"
+sonarqube = "org.sonarqube:7.3.0.8198"
 licensee = "app.cash.licensee:1.14.1"
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 gms_google_services = { id = "com.google.gms.google-services", version = "4.4.4" }
