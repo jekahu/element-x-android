@@ -166,7 +166,7 @@ test_corektx = { module = "androidx.test:core-ktx", version.ref = "test_core" }
 test_arch_core = "androidx.arch.core:core-testing:2.2.0"
 test_junit = "junit:junit:4.13.2"
 test_runner = "androidx.test:runner:1.7.0"
-test_mockk = "io.mockk:mockk:1.14.9"
+test_mockk = "io.mockk:mockk:1.14.11"
 test_konsist = "com.lemonappdev:konsist:0.17.3"
 test_turbine = "app.cash.turbine:turbine:1.2.1"
 test_truth = "com.google.truth:truth:1.4.5"
@@ -239,7 +239,7 @@ sigpwned_emoji4j = "com.sigpwned:emoji4j-core:16.0.0"
 metro_runtime = { module = "dev.zacsweers.metro:runtime", version.ref = "metro" }
 
 # Element Call
-element_call_embedded = "io.element.android:element-call-embedded:0.20.0"
+element_call_embedded = "io.element.android:element-call-embedded:0.20.1"
 
 # Auto services
 google_autoservice = { module = "com.google.auto.service:auto-service", version.ref = "autoservice" }
