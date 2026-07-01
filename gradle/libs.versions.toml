@@ -185,7 +185,7 @@ test_detekt_test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version
 # https://github.com/matrix-org/matrix-rust-components-kotlin/commits/main/sdk/sdk-android/src/main/kotlin/org/matrix/rustcomponents/sdk/matrix_sdk_ffi.kt
 # All new features should not be implemented in the pull request that upgrades the version, developers should
 # only fix API breaks and may add some TODOs.
-matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.06.25"
+matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.06.30"
 
 # Others
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
@@ -214,7 +214,7 @@ vanniktech_blurhash = "com.vanniktech:blurhash:0.3.0"
 telephoto_zoomableimage = { module = "me.saket.telephoto:zoomable-image-coil3", version.ref = "telephoto" }
 telephoto_flick = { module = "me.saket.telephoto:flick-android", version.ref = "telephoto" }
 statemachine = "com.freeletics.flowredux:compose:1.2.2"
-maplibre = "org.maplibre.gl:android-sdk:13.3.0"
+maplibre = "org.maplibre.gl:android-sdk:13.3.1"
 maplibre_ktx = "org.maplibre.gl:android-sdk-ktx-v7:3.0.2"
 maplibre_compose = "org.maplibre.compose:maplibre-compose:0.13.0"
 maplibre_annotation = "org.maplibre.gl:android-plugin-annotation-v9:3.0.2"
@@ -228,8 +228,8 @@ haze_materials = { module = "dev.chrisbanes.haze:haze-materials", version.ref = 
 color_picker = "io.mhssn:colorpicker:1.0.0"
 
 # Analytics
-posthog = "com.posthog:posthog-android:3.47.0"
-sentry = "io.sentry:sentry-android:8.43.2"
+posthog = "com.posthog:posthog-android:3.51.1"
+sentry = "io.sentry:sentry-android:8.44.1"
 # main branch can be tested replacing the version with main-SNAPSHOT
 matrix_analytics_events = "com.github.matrix-org:matrix-analytics-events:0.37.0"
 
