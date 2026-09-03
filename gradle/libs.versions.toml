@@ -3,7 +3,7 @@
 
 [versions]
 # Project
-android_gradle_plugin = "9.3.1"
+android_gradle_plugin = "9.3.2"
 # When updating this, please also update the version in the file ./idea/kotlinc.xml
 kotlin = "2.4.10"
 kotlinpoet = "2.3.0"
@@ -18,7 +18,7 @@ constraintlayout_compose = "1.1.2"
 lifecycle = "2.11.0"
 activity = "1.13.0"
 media3 = "1.11.0"
-camera = "1.6.1"
+camera = "1.6.2"
 work = "2.11.2"
 
 # Compose
@@ -46,7 +46,7 @@ showkase = "1.0.5"
 # When upgrading this version, check state restoration still works fine.
 appyx = "1.7.1"
 sqldelight = "2.3.2"
-wysiwyg = "2.42.0"
+wysiwyg = "2.42.1"
 telephoto = "0.19.0"
 haze = "1.7.2"
 
