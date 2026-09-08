@@ -39,7 +39,7 @@ datetime = "0.8.0"
 serialization_json = "1.11.0"
 
 #other
-coil = "3.6.0"
+coil = "3.6.1"
 # Rollback to 1.0.4, 1.0.5 has this issue: https://github.com/airbnb/Showkase/issues/420
 showkase = "1.0.5"
 # There is some custom logic in `RootFlowNode` that may break because it reuses some Appyx internal APIs.
@@ -49,6 +49,7 @@ sqldelight = "2.3.2"
 wysiwyg = "2.42.1"
 telephoto = "0.19.0"
 haze = "1.7.2"
+maplibre-compose = "0.15.0"
 
 # Dependency analysis
 dependencyAnalysis = "3.19.1"
@@ -185,7 +186,7 @@ test_detekt_test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version
 # https://github.com/matrix-org/matrix-rust-components-kotlin/commits/main/sdk/sdk-android/src/main/kotlin/org/matrix/rustcomponents/sdk/matrix_sdk_ffi.kt
 # All new features should not be implemented in the pull request that upgrades the version, developers should
 # only fix API breaks and may add some TODOs.
-matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.09.3"
+matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.09.08"
 
 # Others
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
@@ -215,10 +216,9 @@ vanniktech_blurhash = "com.vanniktech:blurhash:0.3.0"
 telephoto_zoomableimage = { module = "me.saket.telephoto:zoomable-image-coil3", version.ref = "telephoto" }
 telephoto_flick = { module = "me.saket.telephoto:flick-android", version.ref = "telephoto" }
 statemachine = "com.freeletics.flowredux:compose:1.2.2"
-maplibre = "org.maplibre.gl:android-sdk:13.5.0"
-maplibre_ktx = "org.maplibre.gl:android-sdk-ktx-v7:3.0.2"
-maplibre_compose = "org.maplibre.compose:maplibre-compose:0.14.0"
-maplibre_annotation = "org.maplibre.gl:android-plugin-annotation-v9:3.0.2"
+maplibre_compose = { module = "org.maplibre.compose:maplibre-compose", version.ref = "maplibre-compose" }
+maplibre_compose_runtime_vulkan = { module = "org.maplibre.compose:maplibre-compose-runtime-vulkan-android", version.ref = "maplibre-compose" }
+maplibre_compose_location_runtime_gms = { module = "org.maplibre.compose:location-runtime-gms", version.ref = "maplibre-compose" }
 opusencoder = "io.element.android:opusencoder:1.2.0"
 zxing_cpp = "io.github.zxing-cpp:android:3.1.1"
 google_zxing = "com.google.zxing:core:3.5.4"
