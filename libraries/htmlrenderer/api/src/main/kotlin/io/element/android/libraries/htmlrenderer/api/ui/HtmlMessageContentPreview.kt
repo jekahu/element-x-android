@@ -5,7 +5,7 @@
  * Please see LICENSE files in the repository root for full details.
  */
 
-package io.element.android.libraries.htmlrenderer.impl.renderer
+package io.element.android.libraries.htmlrenderer.api.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.appendInlineContent
@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withAnnotation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
@@ -33,6 +33,7 @@ import io.element.android.libraries.htmlrenderer.api.ListNode
 import io.element.android.libraries.htmlrenderer.api.MentionNodeContent
 import io.element.android.libraries.htmlrenderer.api.ParagraphNode
 import io.element.android.libraries.htmlrenderer.api.QuoteNode
+import io.element.android.libraries.htmlrenderer.api.spans.InlineCodeSpanStyle
 import io.element.android.libraries.matrix.api.core.UserId
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.persistentListOf
@@ -46,8 +47,8 @@ internal fun HtmlMessageContentPreview(
 ) = ElementPreview {
     HtmlMessageContent(
         node = node,
-        modifier = Modifier.padding(16.dp),
         currentUserId = UserId("@me:example.org"),
+        modifier = Modifier.padding(16.dp),
     )
 }
 
@@ -62,8 +63,10 @@ internal class HtmlMessageContentPreviewParam : PreviewParameterProvider<Documen
             nestedQuotes(),
             codeBlock(),
             mention(),
+            mentionOwn(),
             nestedList(),
             nestedListWithComplexContents(),
+            linkifiedParagraph(),
         )
 
     private fun richParagraph() = document(
@@ -81,12 +84,34 @@ internal class HtmlMessageContentPreviewParam : PreviewParameterProvider<Documen
         ),
     )
 
+    private fun linkifiedParagraph() = document(
+        paragraph(
+            buildAnnotatedString {
+                append("Hello me@matrix.org, check out element.io and and call +1 234 567 8900, then get in touch with ")
+                appendInlineContent(MENTION_ID, "@alice:example.org")
+                append(".\n\n")
+                append("Also, ignore this link: ")
+                val start = length
+                append("https://matrix.org")
+                addStringAnnotation(LINK_ANNOTATION_TAG, "https://matrix.org", start, length)
+                append(" and this one: ")
+                withAnnotation(INLINE_CODE_ANNOTATION_TAG, "") {
+                    append("https://element.io")
+                }
+                append(".")
+            },
+            inlineContent = persistentMapOf(
+                MENTION_ID to MentionNodeContent.User(displayText = "@alice", userId = UserId("@alice:example.org")),
+            ),
+        ),
+    )
+
     private fun inlineCode() = document(
         paragraph(
             buildAnnotatedString {
                 append("Run ")
                 val start = length
-                withStyle(SpanStyle(fontFamily = FontFamily.Monospace)) { append("git status") }
+                withStyle(InlineCodeSpanStyle) { append("git status") }
                 addStringAnnotation(INLINE_CODE_ANNOTATION_TAG, "", start, length)
                 append(" to see changes")
             }
@@ -99,9 +124,9 @@ internal class HtmlMessageContentPreviewParam : PreviewParameterProvider<Documen
                 buildAnnotatedString {
                     append("Trying ")
                     val start = length
-                    withStyle(
-                        SpanStyle(fontFamily = FontFamily.Monospace)
-                    ) { append("inline code when it needs to be wrapped in several lines, just to check what it looks like") }
+                    withStyle(InlineCodeSpanStyle) {
+                        append("inline code when it needs to be wrapped in several lines, just to check what it looks like")
+                    }
                     addStringAnnotation(INLINE_CODE_ANNOTATION_TAG, "", start, length)
                     append(", is it good?")
                 }
@@ -149,6 +174,19 @@ internal class HtmlMessageContentPreviewParam : PreviewParameterProvider<Documen
             },
             inlineContent = persistentMapOf(
                 MENTION_ID to MentionNodeContent.User(displayText = "@alice", userId = UserId("@alice:example.org")),
+            ),
+        ),
+    )
+
+    private fun mentionOwn() = document(
+        paragraph(
+            text = buildAnnotatedString {
+                append("Hey ")
+                appendInlineContent(MENTION_ID, "@me")
+                append(", welcome!")
+            },
+            inlineContent = persistentMapOf(
+                MENTION_ID to MentionNodeContent.User(displayText = "@me", userId = UserId("@me:example.org")),
             ),
         ),
     )
