@@ -38,21 +38,20 @@ datetime = "0.8.0"
 serialization_json = "1.11.0"
 
 #other
-coil = "3.6.2"
+coil = "3.6.3"
 # There is some custom logic in `RootFlowNode` that may break because it reuses some Appyx internal APIs.
 # When upgrading this version, check state restoration still works fine.
 appyx = "1.7.1"
 sqldelight = "2.3.2"
 wysiwyg = "2.42.1"
 telephoto = "0.19.0"
-haze = "1.7.2"
 maplibre-compose = "0.15.0"
 
 # Dependency analysis
 dependencyAnalysis = "3.19.2"
 
 # DI
-metro = "1.4.3"
+metro = "1.4.4"
 
 # Auto service
 autoservice = "1.1.1"
@@ -183,7 +182,8 @@ test_detekt_test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version
 # https://github.com/matrix-org/matrix-rust-components-kotlin/commits/main/sdk/sdk-android/src/main/kotlin/org/matrix/rustcomponents/sdk/matrix_sdk_ffi.kt
 # All new features should not be implemented in the pull request that upgrades the version, developers should
 # only fix API breaks and may add some TODOs.
-matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.09.26"
+matrix_sdk = "org.matrix.rustcomponents:sdk-android:26.09.28"
+rustls_platform_verifier = "org.rustls:rustls-platform-verifier:0.2.0"
 
 # Others
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
@@ -219,8 +219,6 @@ zxing_cpp = "io.github.zxing-cpp:android:3.1.1"
 google_zxing = "com.google.zxing:core:3.5.4"
 google_guava = "com.google.guava:guava:33.7.1-android"
 
-haze = { module = "dev.chrisbanes.haze:haze", version.ref = "haze" }
-haze_materials = { module = "dev.chrisbanes.haze:haze-materials", version.ref = "haze" }
 color_picker = "io.mhssn:colorpicker:1.0.0"
 
 # Analytics
