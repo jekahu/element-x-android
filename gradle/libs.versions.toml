@@ -186,7 +186,7 @@ test_detekt_test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version
 # it as a plain `require`: without this, a library built against a newer SDK would silently drag this app
 # onto it. With it, this pin always wins, and a library that needs something newer fails at configuration
 # time naming both versions instead of at runtime with NoSuchMethodError.
-matrix_sdk = { module = "org.matrix.rustcomponents:sdk-android", version = { strictly = "26.09.28" } }
+matrix_sdk = { module = "org.matrix.rustcomponents:sdk-android", version = { strictly = "26.10.05-nightly" } }
 rustls_platform_verifier = "org.rustls:rustls-platform-verifier:0.2.0"
 
 # Others
@@ -221,7 +221,7 @@ maplibre_compose_location_runtime_gms = { module = "org.maplibre.compose:locatio
 opusencoder = "io.element.android:opusencoder:1.2.0"
 zxing_cpp = "io.github.zxing-cpp:android:3.1.1"
 google_zxing = "com.google.zxing:core:3.5.4"
-google_guava = "com.google.guava:guava:33.7.1-android"
+google_guava = "com.google.guava:guava:33.7.2-android"
 
 color_picker = "io.mhssn:colorpicker:1.0.0"
 
