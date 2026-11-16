@@ -48,6 +48,15 @@ android {
         versionCode = Versions.VERSION_CODE
         versionName = Versions.VERSION_NAME
 
+        // Used by the activity-alias ".ElementLinksActivity" in AndroidManifest.xml
+        manifestPlaceholders["elementLinksEnabled"] = BuildTimeConfig.ELEMENT_LINKS_ENABLED.toString()
+        val elementMobileLinkPath = BuildTimeConfig.ELEMENT_MOBILE_LINK_PATH
+        // The value is used with android:path, which is an exact match, so ensure it is a valid exact path.
+        require(elementMobileLinkPath.startsWith("/") && elementMobileLinkPath.none { it == '*' || it.isWhitespace() }) {
+            "BuildTimeConfig.ELEMENT_MOBILE_LINK_PATH must be an exact path starting with '/' and without wildcard, got '$elementMobileLinkPath'"
+        }
+        manifestPlaceholders["elementMobileLinkPath"] = elementMobileLinkPath
+
         // Keep abiFilter for the universalApk
         ndk {
             abiFilters += listOf("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
@@ -261,10 +270,10 @@ androidComponents {
 
 // Configure the SonarQube plugin to wait for the resource generation tasks to complete before running the analysis.
 tasks.withType<SonarResolverTask>().configureEach {
-    dependsOn("generateGplayDebugResValues", "generateGplayDebugAndroidTestResValues")
+    dependsOn("generateGplayDebugResValues")
 }
 
-setupDependencyInjection()
+setupDependencyInjection(generateNodeFactories = false)
 
 dependencies {
     allLibrariesImpl()
